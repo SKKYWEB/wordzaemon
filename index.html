@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title>docx.jsを使ってWordファイル出力するデモページ</title>
+<meta name="keywords" content="docx.js,base64.js,jszip.js,wordファイル,ms word,doc,docx">
+<meta name="description" content="docx.jsを使ってWordファイル出力するデモページです。">
+<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="themes.css" />
+<style>
+body{
+	font-family:Verdana,"Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W6",Osaka,"ＭＳ Ｐゴシック",Arial,sans-serif;
+	padding: 0;
+	margin: 0;
+}
+.clWrap{
+	width:800px;
+	margin:0 auto;
+	text-align:center;
+}
+h1{
+	font-size:18px;
+	line-height:1.4em;
+	text-align:center;
+	font-weight:normal;
+}
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="./libs/base64.js"></script>
+<script type="text/javascript" src="./libs/jszip/jszip.js"></script>
+<script type="text/javascript" src="docx.js"></script>
+<script>
+function fncDoc() {
+	var doc = new DOCXjs();
+	doc.text('JavaScriptの処理内に記述のテキスト情報を');
+	doc.text('Wordファイルのテキスト情報として出力してます。');
+	var output = doc.output('datauri');
+
+}
+</script>
+      <script type="text/javascript" >
+        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+        ga('create', 'UA-134546377-1', 'auto');
+        // Plugins
+
+        ga('send', 'pageview');
+      </script>
+      <script async src="https://www.google-analytics.com/analytics.js"></script>
+</head>
+<body>
+<div class="clWrap">
+    <h1>以下の「ダウンロード」リンククリック後しファイルをダウンロード後、<br />
+    ファイル名を「～.doc」「～.docs」に変更して開いてみて下さい。</h1>
+
+	<a href="javascript:fncDoc()">ダウンロード</a>
+</div><!--/clWrap-->
+</body>
+</html>
