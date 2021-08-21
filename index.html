@@ -4,10 +4,8 @@
 <meta http-equiv="Content-Script-Type" content="text/javascript">
 <meta http-equiv="Content-Style-Type" content="text/css">
 <title>docx.jsを使ってWordファイル出力するデモページ</title>
-<meta name="keywords" content="docx.js,base64.js,jszip.js,wordファイル,ms word,doc,docx">
-<meta name="description" content="docx.jsを使ってWordファイル出力するデモページです。">
-<link rel="stylesheet" type="text/css" href="style.css" />
-<link rel="stylesheet" type="text/css" href="themes.css" />
+<!-- <link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="themes.css" /> -->
 <style>
 body{
 	font-family:Verdana,"Hiragino Kaku Gothic Pro","ヒラギノ角ゴ Pro W6",Osaka,"ＭＳ Ｐゴシック",Arial,sans-serif;
@@ -33,11 +31,11 @@ h1{
 <script type="text/javascript" src="docx.js"></script>
 <script>
 function fncDoc() {
-	var doc = new DOCXjs();
-	doc.text('JavaScriptの処理内に記述のテキスト情報を');
-	doc.text('Wordファイルのテキスト情報として出力してます。');
-	var output = doc.output('datauri');
 
+	var doc = new DOCXjs();
+	var outputText = document.getElementById('result').innerText;
+	doc.text(outputText);
+	var output = doc.output('datauri');
 }
 </script>
       <script type="text/javascript" >
@@ -47,14 +45,34 @@ function fncDoc() {
 
         ga('send', 'pageview');
       </script>
-      <script async src="https://www.google-analytics.com/analytics.js"></script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body>
-<div class="clWrap">
-    <h1>以下の「ダウンロード」リンククリック後しファイルをダウンロード後、<br />
-    ファイル名を「～.doc」「～.docs」に変更して開いてみて下さい。</h1>
 
+
+
+
+	<script type="text/javascript">
+    function onMessage(e) {
+      if (e.origin !== "https://gum.criteo.com/") {
+        document.getElementById("result").innerHTML = 'メッセージを無視: ' + e.origin;
+				console.log(e.origin);
+				console.log(e.data);
+      } else {
+        document.getElementById("result").innerHTML = e.origin + " から受信: " + e.data;
+      }
+    }
+
+    window.addEventListener("message", onMessage, false);
+  </script>
+
+
+
+
+
+<div class="clWrap">
 	<a href="javascript:fncDoc()">ダウンロード</a>
+  <h1 id="result">ここのテキストをWordに出力</h1>
 </div><!--/clWrap-->
 </body>
 </html>
