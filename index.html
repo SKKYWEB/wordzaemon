@@ -33,7 +33,7 @@ h1{
 <script type="text/javascript">
 	function fncDoc() {
 
-	window.child.postMessage('Hello Parent Frame!', '*');
+	document.getElementById('myframe').contentWindow.postMessage('Hello Parent Frame!', '*');
 };
 </script>
 
