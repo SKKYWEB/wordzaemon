@@ -33,7 +33,9 @@ h1{
 <script type="text/javascript">
 	function fncDoc() {
 
-	document.getElementById('myframe').contentWindow.postMessage('Hello Parent Frame!', '*');
+	var tab = window.open('https://skkyweb.sa-suke.com')
+	tab.postMessage('Hello Parent Frame!', '*');
+
 };
 </script>
 
@@ -50,7 +52,7 @@ h1{
 
 	<h1 id="english">HELLO WORLD</h1>
 	<a href="javascript:fncDoc()">ダウンロード</a>
-	<iframe id="myframe" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe>
+	<!-- <iframe id="myframe" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe> -->
 
 
 </div><!--/clWrap-->
