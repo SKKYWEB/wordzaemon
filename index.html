@@ -30,7 +30,7 @@ h1{
 <script type="text/javascript" src="./libs/jszip/jszip.js"></script>
 <script type="text/javascript" src="docx.js"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
 window.addEventListener('message', receiveMessage, false);
 function receiveMessage(event) {
@@ -38,7 +38,7 @@ function receiveMessage(event) {
 		console.log(event.data);
 }
 
-</script>
+</script> -->
 
 
 
@@ -53,7 +53,13 @@ function receiveMessage(event) {
 
 	<h1 id="english">HELLO WORLD</h1>
 	<!-- <a href="javascript:fncDoc()">ダウンロード</a> -->
-	<iframe id="myframe" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe>
+	<iframe id="myframe" name="docx" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe>
+
+	<script>
+	var tab = window.frames.docx;
+	console.log(text);
+	tab.postMessage('Hello World', '*');
+	</script>
 
 
 </div><!--/clWrap-->
