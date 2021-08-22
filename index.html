@@ -30,18 +30,24 @@ h1{
 <script type="text/javascript" src="./libs/jszip/jszip.js"></script>
 <script type="text/javascript" src="docx.js"></script>
 
-<!-- <script type="text/javascript">
+<script>
 
-window.addEventListener('message', receiveMessage, false);
-function receiveMessage(event) {
-		alert("got message: "+ JSON.stringify(event.data));
-		console.log(event.data);
-}
+window.addEventListener("message", function(event) {
 
-</script> -->
+  alert( "received: " +  JSON.stringify(event.data) );
 
+  // can message back using event.source.postMessage(...)
+});
 
 
+
+// function fncDoc() {
+// 	var doc = new DOCXjs();
+// 	var outputText = document.getElementById('result').innerText;
+// 	doc.text(outputText);
+// 	var output = doc.output('datauri');
+// }
+</script>
 
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 </head>
@@ -49,19 +55,19 @@ function receiveMessage(event) {
 
 
 
+.toSource()
+
 <div class="clWrap">
-
-	<h1 id="english">HELLO WORLD</h1>
-	<!-- <a href="javascript:fncDoc()">ダウンロード</a> -->
-	<iframe id="myframe" name="docx" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe>
-
-	<script>
-	var tab = window.frames.docx;
-	// console.log(text);
-	tab.postMessage('Hello World', '*');
-	</script>
-
+	<a href="javascript:fncDoc()">ダウンロード</a>
+  <h1 id="result">ここのテキストをWordに出力</h1>
 
 </div><!--/clWrap-->
+
+<!-- <script>
+var text = document.getElementById('result').innerText;
+console.log(text);
+window.parent.postMessage(text, '*');
+</script> -->
+
 </body>
 </html>
