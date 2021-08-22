@@ -31,12 +31,13 @@ h1{
 <script type="text/javascript" src="docx.js"></script>
 
 <script type="text/javascript">
-	function fncDoc() {
 
-	var tab = window.open('https://skkyweb.sa-suke.com')
-	tab.postMessage('Hello Parent Frame!', '*');
+window.addEventListener('message', receiveMessage, false);
+function receiveMessage(event) {
+		alert("got message: "+ JSON.stringify(event.data));
+		console.log(event.data);
+}
 
-};
 </script>
 
 
@@ -51,8 +52,8 @@ h1{
 <div class="clWrap">
 
 	<h1 id="english">HELLO WORLD</h1>
-	<a href="javascript:fncDoc()">ダウンロード</a>
-	<!-- <iframe id="myframe" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe> -->
+	<!-- <a href="javascript:fncDoc()">ダウンロード</a> -->
+	<iframe id="myframe" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe>
 
 
 </div><!--/clWrap-->
