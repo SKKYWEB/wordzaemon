@@ -29,50 +29,28 @@ h1{
 <script type="text/javascript" src="./libs/base64.js"></script>
 <script type="text/javascript" src="./libs/jszip/jszip.js"></script>
 <script type="text/javascript" src="docx.js"></script>
-<script>
-function fncDoc() {
 
-	var doc = new DOCXjs();
-	var outputText = document.getElementById('result').innerText;
-	doc.text(outputText);
-	var output = doc.output('datauri');
-}
-</script>
-      <script type="text/javascript" >
-        window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-        ga('create', 'UA-134546377-1', 'auto');
-        // Plugins
 
-        ga('send', 'pageview');
-      </script>
+<script type="text/javascript">
+        window.addEventListener('message', receiveMessage, false);
+function receiveMessage(event) {
+            alert("got message: " + event.data);
+        }
+    </script>
+
+
 <script async src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body>
 
 
 
-
-	<script type="text/javascript">
-    function onMessage(e) {
-      if (e.origin !== "https://gum.criteo.com/") {
-        document.getElementById("result").innerHTML = 'メッセージを無視: ' + e.origin;
-				console.log(e.origin);
-				console.log(e.data);
-      } else {
-        document.getElementById("result").innerHTML = e.origin + " から受信: " + e.data;
-      }
-    }
-
-    window.addEventListener("message", onMessage, false);
-  </script>
-
-
-
-
-
 <div class="clWrap">
-	<a href="javascript:fncDoc()">ダウンロード</a>
-  <h1 id="result">ここのテキストをWordに出力</h1>
+
+	<h1 id="english">HELLO WORLD</h1>
+	<iframe id="myframe" src="https://skkyweb.sa-suke.com" width="500px" height="500px"></iframe>
+
+
 </div><!--/clWrap-->
 </body>
 </html>
